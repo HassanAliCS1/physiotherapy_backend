@@ -1,0 +1,1215 @@
+{
+	"info": {
+		"_postman_id": "fad2d07a-aeb6-4cdb-83c3-54c69f0a0a6c",
+		"name": "Physiotherapy Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43468378",
+		"_collection_link": "https://hassan-2610481.postman.co/workspace/Hassan's-Workspace~f3a66ae2-8daf-4bea-8d93-106342abc10c/collection/43468378-fad2d07a-aeb6-4cdb-83c3-54c69f0a0a6c?action=share&source=collection_link&creator=43468378"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\":\"Alex26\",\n    \"last_name\":\"Bill36\",\n    \"email\":\"jojo211456@gamebcs.com\",\n    \"password\":\"hello@123346\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/signup",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						},
+						"description": "### API Request Description\n\nThis endpoint is used to sign up a new user with the provided details. The request should be sent as an HTTP POST to the specified URL with the user's first name, last name, email, and password in the request body.\n\n#### Request Body\n\n- `first_name` (string): The first name of the user.\n    \n- `last_name` (string): The last name of the user.\n    \n- `email` (string): The email address of the user.\n    \n- `password` (string): The password for the user account.\n    \n\n### API Response\n\nThe response for this request will be in JSON format and will include the following fields:\n\n- `status` (integer): Indicates the status of the request. A value of 0 typically indicates success.\n    \n- `message` (string): An optional message related to the status of the request.\n    \n\n#### JSON Schema\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"integer\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\":\"Mike\",\n    \"last_name\":\"Max\",\n    \"email\":\"{{$randomEmail}}\",\n    \"password\":\"hello@1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/auth/signup",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-JloVwdCPH6ZQUcXHm7RlqPP1bRI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 01:24:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 201,\n    \"message\": \"User created successfully\"\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\":\"Mike\",\n    \"last_name\":\"Max\",\n    \"email\":\"{{$randomEmail}}\",\n    \"password\":\"hello\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/auth/signup",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"67-eU5zZBrgkY61/982hi/rxiAoelE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 01:25:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Bad request\",\n    \"error\": \"\\\"password\\\" length must be at least 8 characters long\"\n}"
+						}
+					]
+				},
+				{
+					"name": "SignIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code===200){",
+									"pm.environment.set(\"Token\", pm.response.json().data.access_token);",
+									"}",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"jojo21145@gamebcs.com\",\n    \"password\":\"hello@12334\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/signin",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						},
+						"description": "### Sign In\n\nThis endpoint is used to authenticate a user and obtain an access token.\n\n#### Request Body\n\n- email (string, required): The email of the user.\n    \n- password (string, required): The password of the user.\n    \n\nExample:\n\n``` json\n{\n  \"email\": \"nnnn@ggmail.com\",\n  \"password\": \"hello@12345\"\n}\n\n ```\n\n#### Response\n\n- status (integer): Indicates the status of the request.\n    \n- message (string): A message related to the status of the request.\n    \n- data (object): Contains the access token upon successful authentication.\n    \n    - access_token (string): The access token for the authenticated user.\n        \n\nExample:\n\n``` json\n{\n  \"status\": 0,\n  \"message\": \"\",\n  \"data\": {\n    \"access_token\": \"\"\n  }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"Antwan.Hoeger@gmail.com\",\n    \"password\":\"hello@1234s\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/auth/signin",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-QR0HwgjGY58uZKaYOEZulP0BRCk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 01:32:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Bad request\",\n    \"error\": \"Invalid email or password\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"lipojaw938@hikuhu.com\",\n    \"password\":\"hello@1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/auth/signin",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "296"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"128-sbeHoELuFXVcb2YKb6XsoSnsoJo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Mar 2025 04:11:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"User signed in successfully\",\n    \"data\": {\n        \"is_first_time_login\": false,\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJlbWFpbCI6ImxpcG9qYXc5MzhAaGlrdWh1LmNvbSIsImlhdCI6MTc0MjYxNjY4MywiZXhwIjoxNzQzMjIxNDgzfQ.Bmv28r9HmWu4XZZ2RfIBEUM1hSUrVDlUW1oNfaJVw4s\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Started",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type_of_injury\":\"shoulder\",\n    \"injury_occured\":\"THREE_TO_6_MONTHS\",\n    \"diagnosed_by_medical_professional\":true,\n    \"pain_level\":4,\n    \"stiffness\":5,\n    \"swelling\":6,\n    \"has_pain_during_daily_activities\":false,\n    \"had_surgery\":true,\n    \"surgery_date\":\"2024-12-12\",\n    \"is_get_physiotherapy_before\":true,\n    \"is_previous_physiotherapy_completed\":false,\n    \"physiothrtapy_description\": \"{{$randomLoremParagraph}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/get-started",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"get-started"
+							]
+						},
+						"description": "### Get Started Authentication\n\nThis endpoint is used to initiate the authentication process for a new user.\n\n#### Request Body\n\n- `type_of_injury`: (string) The type of injury, can be \"shoulder\" or \"knee\".\n    \n- `injury_occured`: (string) The duration when the injury occurred, can be \"LESS_THAN_2_WEEKS\", \"TWO_WEEKS_TO_1_MONTH\", \"ONE_TO_3_MONTHS\", \"THREE_TO_6_MONTHS\", or \"SIX_PLUS_MONTHS\".\n    \n- `diagnosed_by_medical_professional`: (boolean) Indicates if the injury was diagnosed by a medical professional.\n    \n- `pain_level`: (integer) The level of pain experienced, ranging from 1 to 10.\n    \n- `has_pain_during_daily_activities`: (boolean) Indicates if there is pain during daily activities.\n    \n- `had_surgery`: (boolean) Indicates if the user had surgery.\n    \n- `surgery_date`: (string) The date of the surgery in the format YYYY-MM-DD.\n    \n- `is_get_physiotherapy_before`: (boolean) Indicates if the user had physiotherapy before.\n    \n- `physiothrtapy_description`: (string) Description of previous physiotherapy.\n    \n\n#### Response\n\n``` json\n{\n  \"status\": 0,\n  \"message\": \"\"\n}\n\n ```\n\nThe response of this request is represented as a JSON schema."
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type_of_injury\":\"shoulder\",\n    \"injury_occured\":\"month\",\n    // \"diagnosed_by_medical_professional\":true,\n    \"pain_level\":3,\n    \"has_pain_during_daily_activities\":false,\n    \"had_surgery\":true,\n    \"surgery_date\":\"2023-12-12\",\n    \"is_get_physiotherapy_before\":true,\n    \"physiothrtapy_description\": \"{{$randomLoremParagraph}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/auth/get-started",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"get-started"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"62-avv2rw4WNTrqbpHmlfK2SgKi0uk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 01:34:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Bad request\",\n    \"error\": \"\\\"diagnosed_by_medical_professional\\\" is required\"\n}"
+						},
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type_of_injury\":\"shoulder\",\n    \"injury_occured\":\"THREE_TO_6_MONTHS\",\n    \"diagnosed_by_medical_professional\":true,\n    \"pain_level\":4,\n    \"stiffness\":5,\n    \"swelling\":6,\n    \"has_pain_during_daily_activities\":false,\n    \"had_surgery\":true,\n    \"surgery_date\":\"2024-12-12\",\n    \"is_get_physiotherapy_before\":true,\n    \"is_previous_physiotherapy_completed\":false,\n    \"physiothrtapy_description\": \"{{$randomLoremParagraph}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/auth/get-started",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"get-started"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "http://localhost:3000"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-xlWqChWSrQsOTOlJrY9r2d9FKAc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 23 Mar 2025 17:17:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 201,\n    \"message\": \"Initial pain added successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Request Email Verification Link",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/request-email-verification-link",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"request-email-verification-link"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/api/auth/request-email-verification-link",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"request-email-verification-link"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-RKhBcnAZkgTlKIgp7FHsEsM+shM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 10:16:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Bad request\",\n    \"error\": \"Email already verified\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/api/auth/request-email-verification-link",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"request-email-verification-link"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"44-USvcU+oXv6jTh/8tmwt8JxcKc0w\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 10:18:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"Email verification link sent successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"tifoco9344@hikuhu.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/forgot-password",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"forgot-password"
+							]
+						},
+						"description": "## Forgot Password\n\nThis endpoint is used to initiate the process of resetting the user's password by sending a reset link to the provided email address.\n\n### Request Body\n\n- email (text, required): The email address for which the password reset link will be sent.\n    \n\n#### Example\n\n``` json\n{\n    \"email\": \"user@example.com\"\n}\n\n ```\n\n### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\n#### Success Response\n\n``` json\n{\n    \"status\": 0,\n    \"message\": \"\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_password\":\"QQQqqq@1234\",\n    \"otp\":\"4543\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/reset-password/",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"reset-password",
+								""
+							]
+						},
+						"description": "This endpoint allows users to reset their password by sending a POST request to {{BaseUrl}}/api/auth/reset-password/. The request should include the new password and the OTP (One Time Password) for verification.\n\n### Request Body\n\n- `new_password` (string): The new password for the user account.\n    \n- `otp` (string): The One Time Password for verification.\n    \n\n### Response\n\nUpon successful execution, the endpoint returns a status code of 200 and a JSON response with the following structure:\n\n``` json\n{\n    \"status\": 0,\n    \"message\": \"\"\n}\n\n ```\n\n- `status` (integer): Indicates the status of the password reset operation. A value of 0 typically represents a successful password reset.\n    \n- `message` (string): An optional message providing additional information about the operation, which may be empty in case of a successful reset."
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Reset Password OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"otp\":\"4543\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/verify-reset-password-otp",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"verify-reset-password-otp"
+							]
+						},
+						"description": "The `POST /api/auth/verify-reset-password-otp` endpoint is used to verify the reset password OTP. The request should include the OTP in the request body.\n\n### Request Body\n\n- `otp` (string, required): The OTP to be verified.\n    \n\n### Response\n\nUpon successful execution, the endpoint returns a JSON object with the following properties:\n\n- `status` (integer): Indicates the status of the OTP verification.\n    \n- `message` (string): A message related to the OTP verification status.\n    \n\nExample response:\n\n``` json\n{\n    \"status\": 0,\n    \"message\": \"\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Access Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/verify-token",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"verify-token"
+							]
+						},
+						"description": "### Verify Token\n\nThis endpoint is used to verify the authenticity of a token.\n\n#### Request\n\nNo request body is required for this endpoint. The token to be verified is sent in the request headers.\n\n#### Response\n\n- `status` (integer): Indicates the status of the token verification. A value of 0 indicates a successful verification.\n    \n- `message` (string): Provides additional information about the token verification process.\n    \n\nExample response:\n\n``` json\n{\n    \"status\": 0,\n    \"message\": \"\"\n}\n\n ```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Account",
+			"item": [
+				{
+					"name": "User Account Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/user-info",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"user-info"
+							]
+						},
+						"description": "### Get User Information\n\nThis endpoint retrieves the user's profile details and initial pain details.\n\n#### Request Body\n\nThis is a GET request and does not require a request body.\n\n#### Response Body\n\n- `status` (number): The status of the response.\n    \n- `message` (string): A message related to the response.\n    \n- `data` (object):\n    \n    - `user_profile_details` (object):\n        \n        - `id` (number): The user's ID.\n            \n        - `first_name` (string): The user's first name.\n            \n        - `last_name` (string): The user's last name.\n            \n        - `email` (string): The user's email address.\n            \n        - `is_email_verified` (boolean): Indicates if the user's email is verified.\n            \n        - `level` (number): The user's level.\n            \n    - `initial_pain_details` (object):\n        \n        - `id` (number): The pain details ID.\n            \n        - `user_id` (number): The user's ID.\n            \n        - `type_of_injury` (string): The type of injury.\n            \n        - `injury_occured` (string): Description of when the injury occurred.\n            \n        - `diagnosed_by_medical_professional` (boolean): Indicates if the injury was diagnosed by a medical professional.\n            \n        - `pain_level` (number): The user's pain level.\n            \n        - `has_pain_during_daily_activities` (boolean): Indicates if the user has pain during daily activities.\n            \n        - `had_surgery` (boolean): Indicates if the user had surgery.\n            \n        - `surgery_date` (string): The date of the surgery.\n            \n        - `is_get_physiotherapy_before` (boolean): Indicates if the user had physiotherapy before.\n            \n        - `physiothrtapy_description` (string): Description of previous physiotherapy.\n            \n        - `created_at` (string): The date and time of creation.\n            \n        - `updated_at` (string): The date and time of last update.\n            \n\n#### Example Response\n\n``` json\n{\n    \"status\": 0,\n    \"message\": \"\",\n    \"data\": {\n        \"user_profile_details\": {\n            \"id\": 0,\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"email\": \"\",\n            \"is_email_verified\": true,\n            \"level\": null\n        },\n        \"initial_pain_details\": {\n            \"id\": 0,\n            \"user_id\": 0,\n            \"type_of_injury\": \"\",\n            \"injury_occured\": \"\",\n            \"diagnosed_by_medical_professional\": true,\n            \"pain_level\": 0,\n            \"has_pain_during_daily_activities\": true,\n            \"had_surgery\": true,\n            \"surgery_date\": \"\",\n            \"is_get_physiotherapy_before\": true,\n            \"physiothrtapy_description\": \"\",\n            \"created_at\": \"\",\n            \"updated_at\": \"\"\n        }\n    }\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4500/api/user-info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"api",
+										"user-info"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "615"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"267-L8edSYR/CntSg+oaWt/ElpulW5A\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 01:21:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"User details fetched successfully\",\n    \"data\": {\n        \"user_profile_details\": {\n            \"id\": 1,\n            \"first_name\": \"Mike\",\n            \"last_name\": \"Max\",\n            \"email\": \"Antwan.Hoeger@gmail.com\",\n            \"is_email_verified\": false,\n            \"level\": null\n        },\n        \"initial_pain_details\": {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"type_of_injury\": \"knee\",\n            \"injury_occured\": \"day\",\n            \"diagnosed_by_medical_professional\": true,\n            \"pain_level\": 3,\n            \"has_pain_during_daily_activities\": false,\n            \"had_surgery\": true,\n            \"surgery_date\": \"2023-12-11T18:30:00.000Z\",\n            \"is_get_physiotherapy_before\": true,\n            \"physiothrtapy_description\": \"efgegvev\",\n            \"created_at\": \"2025-03-20T00:44:44.000Z\",\n            \"updated_at\": \"2025-03-20T00:44:44.000Z\"\n        }\n    }\n}"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4500/api/user-info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4500",
+									"path": [
+										"api",
+										"user-info"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-0wx/WOfw1sgPSnFUXZzTQZMP5ZQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 01:22:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 401,\n    \"message\": \"Unauthorized\",\n    \"error\": \"Access token required\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   // \"old_password\":\"hello@1234\",//Required\n    \"first_name\":\"Barac\",//Optional\n    \"last_name\":\"Obama\",//Optional\n    \"email\":\"nnnn@ggmail.com\",//Optional\n    \"new_password\":\"hello@12345\"//Optional\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/user-info/update-details",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"user-info",
+								"update-details"
+							]
+						},
+						"description": "### Update User Information\n\nThis endpoint allows the user to update their personal information such as first name, last name, email, and password.\n\n#### Request\n\n- Method: POST\n    \n- BaseUrl: {{BaseUrl}}\n    \n- Endpoint: /api/user-info/update-details\n    \n- Headers:\n    \n    - Content-Type: application/json\n        \n- Body:\n    \n    - old_password (string, required): The user's current password.\n        \n    - first_name (string, required): The user's updated first name.\n        \n    - last_name (string, required): The user's updated last name.\n        \n    - email (string, required): The user's updated email address.\n        \n    - new_password (string, required): The user's new password.\n        \n\n#### Response\n\nThe response is in JSON format with the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"status\": {\n            \"type\": \"integer\"\n        },\n        \"message\": {\n            \"type\": \"string\"\n        }\n    }\n}\n\n ```\n\n- status (integer): Indicates the status of the update operation.\n    \n- message (string): Provides additional information about the update operation."
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\":\"hello@1234\",//Required\n    \"first_name\":\"Barac\",//Optional\n    \"last_name\":\"Obama\",//Optional\n    \"email\":\"nnnn@ggmail.com\",//Optional\n    \"new_password\":\"hello@12345\"//Optional\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/user-info/update-details",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"user-info",
+										"update-details"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-QMQP8g4myshpbDn/chDt5mhNNPY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 15:07:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 200,\n    \"message\": \"User details updated successfully\"\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   // \"old_password\":\"hello@1234\",//Required\n    \"first_name\":\"Barac\",//Optional\n    \"last_name\":\"Obama\",//Optional\n    \"email\":\"nnnn@ggmail.com\",//Optional\n    \"new_password\":\"hello@12345\"//Optional\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/user-info/update-details",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"user-info",
+										"update-details"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-WnuWyccU9sX2l99UuOiJASHblsw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 15:18:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 400,\n    \"message\": \"Bad request\",\n    \"error\": \"\\\"old_password\\\" is required\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User Exercise Feedback",
+			"item": [
+				{
+					"name": "Create New Exercise Feedback",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pain_level\":2,\n    \"swelling\":4,\n    \"stiffness\":7,\n    \"fatigue_level\":1,\n    \"strength_perception\":9,\n    \"functional_improvement\":5,\n    \"exercise_tolerance\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/user-feedback",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"user-feedback"
+							]
+						},
+						"description": "### User Feedback Submission\n\nThis endpoint allows the user to submit feedback related to their pain, swelling, stiffness, fatigue level, strength perception, functional improvement, and exercise tolerance.\n\n#### Request Body\n\n- `pain_level` (number): The level of pain experienced by the user. Min value is 1 and Max value is 10.\n    \n- `swelling` (number): The level of swelling experienced by the user. Min value is 1 and Max value is 10.\n    \n- `stiffness` (number): The level of stiffness experienced by the user. Min value is 1 and Max value is 10.\n    \n- `fatigue_level` (number): The level of fatigue experienced by the user. Min value is 1 and Max value is 10.\n    \n- `strength_perception` (number): The user's perception of their strength. Min value is 1 and Max value is 10.\n    \n- `functional_improvement` (number): The user's perceived improvement in functionality. Min value is 1 and Max value is 10.\n    \n- `exercise_tolerance` (number): The user's tolerance for exercise. Min value is 1 and Max value is 10.\n    \n\n#### Response\n\n- `status` (number): Indicates the status of the feedback submission. A value of 0 indicates success.\n    \n- `message` (string): A message related to the submission status.\n    \n\n#### Example Response\n\n``` json\n{\n    \"status\": 0,\n    \"message\": \"\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pain_level\":4,\n    \"swelling\":2,\n    \"stiffness\":3,\n    \"fatigue_level\":2,\n    \"strength_perception\":2,\n    \"functional_improvement\":2,\n    \"exercise_tolerance\":7\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/user-feedback",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"user-feedback"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-tM750rSOVweFk3/iTbLfou75UJA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Mar 2025 05:48:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": 201,\n    \"message\": \"User feedback added successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Exercise Report",
+			"item": [
+				{
+					"name": "Get Exercise report details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/exercise-report",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"exercise-report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
